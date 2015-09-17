@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/UpBeet/world-builder/issues"
   },
-  "homepage": "https://github.com/UpBeet/world-builder"
+  "homepage": "https://github.com/UpBeet/world-builder",
+  "dependencies": {
+    "mithril": "^0.2.0"
+  }
 }
