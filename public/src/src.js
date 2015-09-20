@@ -26,7 +26,7 @@ weslo.vm = {
     }
 };
 
-weslo.component = function() {
+weslo.controller = function() {
     weslo.vm.init();
 };
 
