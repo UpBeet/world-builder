@@ -15,12 +15,12 @@ weslo.vm = {
     init: function() {
         weslo.vm.list = new weslo.WorldList();
 
-        weslo.vm.description = m.prop('');
+        weslo.vm.description = m.prop("");
 
-        weslo.vm.add = function(description) {
-            if(description()) {
-                weslo.vm.list.push(new weslo.World({description: description()}));
-                weslo.vm.description('');
+        weslo.vm.add = function() {
+            if(weslo.vm.description()) {
+                weslo.vm.list.push(new weslo.World({description: weslo.vm.description()}));
+                weslo.vm.description("");
             }
         }
     }
@@ -33,18 +33,20 @@ weslo.controller = function() {
 weslo.view = function() {
     return m("html", [
         m("body", [
-            m("input"),
-            m("button", "Add"),
+            m("input", {onchange: m.withAttr("value", weslo.vm.description), value: weslo.vm.description()}),
+            m("button", {onclick: weslo.vm.add}, "Add"),
             m("table", [
-                m("tr", [
-                    m("td", [
-                        m("input[type=checkbox]")
-                    ]),
-                    m("td", "task description"),
-                ])
+                weslo.vm.list.map(function(world, index) {
+                    return m("tr", [
+                        m("td", [
+                            m("input[type=checkbox]", {onclick: m.withAttr("checked", world.thriving), checked: world.thriving()})
+                        ]),
+                        m("td", {style: {textDecoration: world.thriving() ? "line-through" : "none"}}, world.description()),
+                    ])
+                })
             ])
         ])
     ]);
 };
 
-m.render(document, weslo.view());
+m.mount(document, {controller: weslo.controller, view: weslo.view});
