@@ -1,5 +1,5 @@
 var m = require('mithril');
-//A componenet
+//A component
 var weslo = {};
 // A class definition (Model)
 weslo.World = function(data) {
@@ -26,7 +26,7 @@ weslo.vm = {
     }
 };
 
-weslo.componenet = function() {
+weslo.component = function() {
     weslo.vm.init();
 };
 
