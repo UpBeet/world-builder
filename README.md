@@ -7,7 +7,7 @@ Clone or fork the repo.
 
 ```
     $ git clone git@github.com:UpBeet/world-builder.git
-    $ cd StormClient
+    $ cd world-builder
     $ npm install
     $ npm install -g grunt-cli
     $ sudo gem install sass
