@@ -6,7 +6,7 @@ Research project at RIT exploring world-building and role-playing as a method fo
 Clone or fork the repo.
 
 ```
-    $ git clone git@github.com:IGME-Research-Studio/StormClient.git
+    $ git clone git@github.com:UpBeet/world-builder.git
     $ cd StormClient
     $ npm install
     $ npm install -g grunt-cli
