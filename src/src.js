@@ -31,22 +31,23 @@ weslo.controller = function() {
 };
 
 weslo.view = function() {
-    return m("html", [
-        m("body", [
-            m("input", {onchange: m.withAttr("value", weslo.vm.description), value: weslo.vm.description()}),
-            m("button", {onclick: weslo.vm.add}, "Add"),
-            m("table", [
-                weslo.vm.list.map(function(world, index) {
-                    return m("tr", [
-                        m("td", [
-                            m("input[type=checkbox]", {onclick: m.withAttr("checked", world.thriving), checked: world.thriving()})
-                        ]),
-                        m("td", {style: {textDecoration: world.thriving() ? "line-through" : "none"}}, world.description()),
-                    ])
-                })
-            ])
-        ])
+    return m("div", [
+          m("input", {onchange: m.withAttr("value", weslo.vm.description), value: weslo.vm.description()}),
+          m("button", {onclick: weslo.vm.add}, "Add"),
+          m("table", [
+              weslo.vm.list.map(function(world, index) {
+                  return m("tr", [
+                      m("td", [
+                          m("input[type=checkbox]", {onclick: m.withAttr("checked", world.thriving), checked: world.thriving()})
+                      ]),
+                      m("td", {style: {textDecoration: world.thriving() ? "line-through" : "none"}}, world.description()),
+                  ])
+              })
+          ])
     ]);
 };
 
-m.mount(document, {controller: weslo.controller, view: weslo.view});
+window.onload = function () {
+  const body = document.querySelector('body');
+  m.mount(body, {controller: weslo.controller, view: weslo.view});
+};
