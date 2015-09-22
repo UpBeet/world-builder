@@ -5,7 +5,12 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "watch": "grunt watch",
+    "build": "grunt build-dev",
+    "build-dev": "grunt build-dev",
+    "build-prod": "grunt build-prod",
+    "prod": "grunt prod"
   },
   "repository": {
     "type": "git",
@@ -32,6 +37,7 @@
     "grunt-contrib-clean": "^0.6.0",
     "grunt-contrib-copy": "^0.8.1",
     "grunt-contrib-uglify": "^0.9.2",
-    "grunt-contrib-watch": "^0.6.1"
+    "grunt-contrib-watch": "^0.6.1",
+    "load-grunt-tasks": "^3.3.0"
   }
 }
